@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="content-section">
+    <form method = "POST" action = "http://127.0.0.1:5678/poison_page">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <legend class = "border-bottom mb-4"> Key in IP Address </legend> 
+        <div class="form-group">
+          {{ form.ipaddress.label(class="form-control-label") }}
+          {{ form.ipaddress(class = "form-control form-control-ig") }}
+        </div> 
+      </fieldset> 
+      <div class = "form-group">
+       {{ form.submit(class = "btn btn-outline-info") }}
+      </div>
+    </form>
+  <div>
+
+{% endblock content %}
+
