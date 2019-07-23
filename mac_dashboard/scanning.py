@@ -15,7 +15,7 @@ except KeyboardInterrupt:
   sys.exit(1)
 '''
 def scan():
-  interface = "wlan0"
+  interface = "en0"
   ips = "192.168.0.0/24"
 
   print ("\n[*] Scanning...")

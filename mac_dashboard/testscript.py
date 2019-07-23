@@ -1,0 +1,3 @@
+from netdiscofinal import *
+
+discover()
