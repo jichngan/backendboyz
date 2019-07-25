@@ -13,9 +13,13 @@ git push origin
 - To run scapy python must be SUDO  
 - Put in troubleshooting details
 - (Troubleshooting 1): system_profiler SPNetworkDataType | grep WI-FI -A10
+- sudo python save_picf.py
 
 #List of Pip Install stuff [MAC]
 - Scapy
 - sudo pip install request
 - pip3 install netdisco
-- 
+- sudo pip install --ignore-installed six pandas
+- sudo pip install matplotlib
+- sudo pip install --user --upgrade matplotlib 
+-n 
