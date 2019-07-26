@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>NOSY Web App features</h1>
+<p>The motivation behind a public facing web app is mainly to host instructional videos and the downloads for our private IoT scanner app.<br>We however 
+decided to add a post functionality for people to share their findings and ask questions about the app so that there can be help from the community if a user faces a problem.<br><br>If you have any suggestions or find any bugs, leave a post to let us know about it!</p>
+<header>Home Page:</header>
+<ul>
+	<li>This page will show the posts of the users, which includes the date it was posted, the author and eventually a picture if the user uploads one.</li>
+	<li>The user has to be logged in to post. If the user is the owner of the post, clicking the post title would allow them to edit/delete the post.</li>
+</ul>
+<header>Downloads Page:</header>
+<ul>
+	<li>User can download the private facing app here for either linux or mac OS by clicking on the respective logos.</li>
+	<li>We do require users to be logged in to download the app.</li>
+</ul>
+<header>Login/Register Page:</header>
+<ul>
+	<li>We host our account related forms here.</li>
+	<li>User data is kept in an SQLite database and passwords are all encrypted using pythons Bcrypt library so they wont be stored as plain text.</li>
+</ul>
+<header>Account Page:</header>
+<ul>
+	<li>Once logged in, the login tag changes to an account tag.</li>
+	<li>Here, users can update their personal info like their username or email address and even upload profile pictures.</li>
+	<li>We may add on more functionalities to the account page in the future.</li>
+</ul>
+{% endblock content %} 
