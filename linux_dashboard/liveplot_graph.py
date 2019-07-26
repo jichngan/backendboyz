@@ -10,9 +10,13 @@ def animate(i):
   y1 = data["Bytes"]
 
   plt.cla()
-  plt.bar(x,y1)
+  plt.bar(x,y1, color = "#444444", label = "Bytes Sent")
+  plt.xticks(rotation=60)
   plt.tight_layout()
 
+
+fig = plt.gcf()
+fig.canvas.set_window_title("Network Traffic")
 ani = FuncAnimation(plt.gcf(), animate, interval=1000)
 plt.tight_layout()
 plt.show()

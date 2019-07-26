@@ -66,7 +66,7 @@ def view_scan():
   image_size = image_info()
   height = image_size["Height"]
   width = image_size["Width"]
-  return render_template('plot.html', name = "New Plot", url = "/static/images/new_plot.png", height=height, width=width)
+  return render_template('plot_graph.html', name = "New Plot", url = "/static/images/new_plot.png", height=height, width=width)
 
 
 @app.route('/form', methods=["POST"])
@@ -89,7 +89,7 @@ def my_form_post():
 def submit():
  #Add subprocess to call new server script
   form = SubmissionForm()
-  return render_template('submission.html', title = "Poison", form = form)
+  return render_template('poison_submission.html', title = "Poison", form = form)
 
 @app.route('/about',methods = ["GET", "POST"])
 def about():
