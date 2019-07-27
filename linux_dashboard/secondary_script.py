@@ -1,8 +1,13 @@
 from flask import Flask, render_template,jsonify,request,redirect
-from first import *
 from netdiscofinal import *
-import subprocess
+from shutdown import *
+import requests
+import logging
 app = Flask(__name__)
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
+
+
 
 @app.route('/')
 def first():
@@ -14,16 +19,10 @@ def find():
   a = discover()
   return jsonify(a)
 
-@app.route('/poison_page', methods = ["GET", "POST"])
-def poison_page():
-  if request.method == "POST":
-    output = request.form
-    result = output["ipaddress"]
-    return render_template('poison_page.html', title = "Poison", result = result)
-  return render_template('poison_page.html', title="Poison Page")
-
-
-
+@app.route('/logout', methods = ["GET"])
+def logoff():
+  shutdown_server()
+  return 'Second server down'
 
 @app.route('/index')
 def index():

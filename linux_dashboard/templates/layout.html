@@ -12,7 +12,7 @@
     <link rel="stylesheet" type = "text/css" href = "{{ url_for('static', filename = 'main.css')}}">
 
   {% if title %}
-  <title>Nosy Dashboard - {{ title }}</title>
+  <title> {{ title }}</title>
   {% else %}
   <title>Nosy Dashboard</title>
   {% endif %}
@@ -28,11 +28,16 @@
         <div class="collapse navbar-collapse" id="navbarToggle">
           <div class="navbar-nav mr-auto">
             <a class="nav-item nav-link" href="/">Home</a>
-            <a class="nav-item nav-link" href="/about">About</a>
-            <a class="nav-item nav-link" href="/scan_page">Scan</a>
-            <a class="nav-item nav-link" href="/view_scan">Display Scan </a>
+            <a class="nav-item nav-link" href="/about">Instructions</a>
+            <a class="nav-item nav-link" href="/scan_page">Discover All</a>
+            <a class="nav-item nav-link" href="/discover_page">Scan IOT Device</a>
+            <a class="nav-item nav-link" href="/network_scan"> Scan Network Traffic </a>
+            <a class="nav-item nav-link" href="/view_scan">Display Network Traffic </a>
           </div>
           <!-- Navbar Right Side -->
+          <div class ="navbar-nav">
+            <a class="nav-item nav-link" href = "/logoff">End Session </a>
+          </div>
         </div>
       </div>
     </nav>

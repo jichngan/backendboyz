@@ -1,49 +1,27 @@
 from flask import Flask, render_template,jsonify,url_for,redirect,request
 from scanning import *
-from first import *
 from image_info import *
-from poison_form import SubmissionForm
+from  shutdown import *
 import subprocess
 import json
 import requests
 import os 
+import logging
+import webbrowser
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfe280ba245'
-
-#Test Posts
-
-blog_posts = [
-  {
-    'author': 'Jich',
-    'title': 'Blog Post 1',
-    'content': 'Jich\'s first post',
-    'date_posted': '4 July 2019'
-  },
-  {
-    'author': 'John',
-    'title': 'Blog Post 2',
-    'content': 'John\'s first post',
-    'date_posted': '5 July 2019'
-  }
-]
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
 
 @app.route('/')
-def first():
-  name = hello()
-
-  return render_template('index.html', title = "Home", name = name)
-
-
-
+def index():
+  return render_template('index.html', title = "Home")
 
 @app.route('/start_scan')
 def start_scan():
   devices = scan()
-  r = requests.get("http://127.0.0.1:5678/discover")
-  names = r.json()
-  return render_template('scan.html', title = "Scanning", devices = devices,names = names)
+  return render_template('scan.html', title = "Scanning", devices = devices)
 
 
 @app.route('/scan_page')
@@ -51,14 +29,22 @@ def scan_page():
   SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
   json_url = os.path.join(SITE_ROOT, 'scan.json')
   scan_data = json.load(open(json_url))
-  return render_template('scan_page.html', title = "Scan",scan_data = scan_data)
+  return render_template('scan_page.html', title = "All Devices",scan_data = scan_data)
 
-@app.route('/discover')
-def discover():
+
+@app.route('/discover_page')
+def discover_page():
+  SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+  json_url = os.path.join(SITE_ROOT, 'discover.json')
+  scan_data = json.load(open(json_url))
+  return render_template('discover_page.html', title = "IOT Devices", scan_data = scan_data) 
+
+@app.route('/start_discover')
+def start_discover():
   r = requests.get("http://127.0.0.1:5678/discover")
   names = r.json()
-  return render_template('discover.html', title = "Discover", names = names)
-  #return redirect("http://127.0.0.1:5678/discover")
+  return render_template('discover.html', title = "IOT Discovery", names = names)
+  
 
 @app.route('/view_scan')
 def view_scan():
@@ -66,42 +52,28 @@ def view_scan():
   image_size = image_info()
   height = image_size["Height"]
   width = image_size["Width"]
-  return render_template('plot_graph.html', name = "New Plot", url = "/static/images/new_plot.png", height=height, width=width)
+  return render_template('plot_graph.html', name = "New Plot", url = "static/images/new_plot.png", height=height, width=width)
 
-
-@app.route('/form', methods=["POST"])
-def my_form():
-  text = request.form['text']
-  return text
-'''
-@app.route('/form', methods=["POST"])
-def my_form_post():
-  text = request.form['text']
-  child = subprocess.Popen(['python', 'plotpoisontest.py'], stdin=subprocess.PIPE)
-  try:
-    child.communicate(text)
-  except KeyboardInterrupt:
-    child.terminate()
-  return "test"
-'''
-
-@app.route('/submit', methods = ['GET', 'POST'])
-def submit():
- #Add subprocess to call new server script
-  form = SubmissionForm()
-  return render_template('poison_submission.html', title = "Poison", form = form)
-
-@app.route('/about',methods = ["GET", "POST"])
+@app.route('/about')
 def about():
-  if request.method == "POST":
-    output = request.form 
-    result = output["ipaddress"]
-    return render_template('about1.html', title = "Show IP", result = result)
-  return render_template('about.html',title = "About",  blog_posts=blog_posts)
+  return render_template('about.html', name = "About")
+
+@app.route('/network_scan')
+def network_scan():
+  return render_template('traffic.html', name = "Traffic")
+
+@app.route('/logoff', methods=['GET'])
+def logoff():
+    requests.get("http://127.0.0.1:5678/logout")
+    shutdown_server()
+    return render_template('logoff.html', name = "Logoff")
 
 
 if __name__ == "__main__":
-  app.run(debug=True,host= '127.0.0.1', port = 1234)
+  url = 'http://127.0.0.1:1234'
+  webbrowser.open_new(url)
+  app.run(host = '127.0.0.1', port = 1234)
+  #app.run(debug=True,host= '127.0.0.1', port = 1234)
 
 
 

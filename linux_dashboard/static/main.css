@@ -8,6 +8,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
 
+img {
+  border:1px solid #021a40;
+}
+
 .bg-steel {
   background-color: #5f788a;
 }
@@ -79,10 +83,4 @@ a.article-title:hover {
   font-size: 2.5rem;
 }
 
-div#loading {
-  width: 35px;
-  height: 35px;
-  display: none;
-  background: url(/static/loadingimage.gif) no-repeat;
-  cursor: wait;
-}
+

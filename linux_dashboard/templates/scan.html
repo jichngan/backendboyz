@@ -2,15 +2,15 @@
 {% block content %}
   <h1> Scan for Devices </h1>
   {% for k,v in devices.items() %}
-    <h2> Device Number {{ k }} </h2>
-    <p> IP of Device {{ k }} is {{ devices[k]["IP"] }} </p>
-    <p> MAC of Device {{ k }} is {{ devices[k]["Mac"] }} </p>
-    <p> Manufacturer of Device {{ k }} is {{ devices[k]["Company"] }} </p>
-  {% endfor %}
-
-  <h1> IOT Devices Name </h1>
-  <h2> Netdisco Names </h2>
-  {% for k,v in names.items() %}
-    <p> Details of Device {{ k }} is {{ names[k] }} </p>
+  <article class = "media content-section">
+    <div class = "media-body">
+      <div class="article-metadata">
+        <h2> Device Number {{ k }} </h2>
+          <p> IP of Device {{ k }} is {{ devices[k]["IP"] }} </p>
+          <p> MAC of Device {{ k }} is {{ devices[k]["Mac"] }} </p>
+          <p> Manufacturer of Device {{ k }} is {{ devices[k]["Company"] }} </p>
+      </div>
+    </div>
+  </article>
   {% endfor %}
 {% endblock content %}
