@@ -1,4 +1,7 @@
-#This code is to animate the graph 
+'''
+This code is to animate the graph as network traffic is coming in from another script 
+@param_in: Data from data.csv 
+'''
 
 import pandas as pd
 import matplotlib.pyplot as plt

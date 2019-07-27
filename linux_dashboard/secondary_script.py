@@ -1,3 +1,6 @@
+'''
+This is the secondary server to run the Netdisco code as that code must be executed in Python3 
+'''
 from flask import Flask, render_template,jsonify,request,redirect
 from netdiscofinal import *
 from shutdown import *
@@ -23,23 +26,6 @@ def find():
 def logoff():
   shutdown_server()
   return 'Second server down'
-
-@app.route('/index')
-def index():
-      user = {'username': 'Jich'}
-
-      posts = [
-{
-  'author': {'username': 'John'},
-    'body': 'Beautiful day in Portland!'
-},
-{
-  'author': {'username': 'Susan'},
-  'body': 'The Avengers movie was so cool!'
-}
-      ]
-      return render_template('index.html', title='My Home', user=user, posts=posts)
-
 
 if __name__ == "__main__":
   app.run(debug=True,host= '127.0.0.1', port = 5678)

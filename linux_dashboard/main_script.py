@@ -1,3 +1,8 @@
+'''
+This is the main source code of the webserver which hosts the Dashboard for Nosy
+Most of the code is ran in python2 
+'''
+
 from flask import Flask, render_template,jsonify,url_for,redirect,request
 from scanning import *
 from image_info import *

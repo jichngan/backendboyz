@@ -1,3 +1,10 @@
+'''
+This is the main code of Nosy which is the Network Traffic Scanning 
+It uses ARP Cache poisoning, poisoning the gateway and IOT Device to track the network deice
+This code makes use of Scapy as a Network Traffic Scanner and this version is specific to Linux OS
+Scapy then collects the ARP traffic and resolve the DNS 
+As this code runs indefinitely, the data is saved in a CSV to be output realtime 
+'''
 from scapy.all import *
 import threading 
 import os
@@ -74,7 +81,7 @@ def dns_sniff_request(pkt):
                     "Bytes": length
                   }
                   csv_writer.writerow(info)
-                print(date + " Service: DNS" + " Victim " + pkt.getlayer(IP).src + " (" + pkt.getlayer(Ether).src + ") is resolving " + pkt.getlayer(DNS).qd.qname + " with " + str(len(pkt)) + " bytes in length.")
+               # print(date + " Service: DNS" + " Victim " + pkt.getlayer(IP).src + " (" + pkt.getlayer(Ether).src + ") is resolving " + pkt.getlayer(DNS).qd.qname + " with " + str(len(pkt)) + " bytes in length.")
 
 
 #Constant inputs -> Can ask from user also 
@@ -98,6 +105,7 @@ if GW_IP is None or GW_IP == "":
 if INTERFACE is None or INTERFACE == "":
 	INTERFACE = DEFAULT_INTERFACE
 
+#Getting MAC Addresses of Devices
 while True:
   V_MAC = get_MACaddress(V_IP)
   GW_MAC = get_MACaddress(GW_IP)

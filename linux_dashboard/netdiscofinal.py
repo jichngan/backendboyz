@@ -1,3 +1,8 @@
+'''
+The only code that runs on Python3 this code discovers the IOT Devices and outputs more information based on the IOT Device
+@return: Dictionary with key as a counter variable and value as the information
+'''
+
 from netdisco.discovery import NetworkDiscovery
 import json
 

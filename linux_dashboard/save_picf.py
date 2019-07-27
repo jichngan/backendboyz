@@ -1,3 +1,9 @@
+'''
+This code saves the data retrieved from the network scan and save it into a picture 
+@param_in: Data from data.csv file 
+@return: Picture saved in file path static/images. Name of picture is new_plot.png
+'''
+
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import style
@@ -15,6 +21,7 @@ plt.ylabel("DNS Host", fontweight= 'black')
 figure = plt.gcf()
 figure.set_size_inches(8,5)
 
+#Saving picture into file path
 plt.savefig('static/images/new_plot.png',bbox_inches = "tight",dpi=100)
 
 plt.tight_layout()

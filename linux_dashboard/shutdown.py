@@ -1,3 +1,7 @@
+'''
+Code to shut down servers on click 
+'''
+
 from flask import request
 def shutdown_server():
     func = request.environ.get('werkzeug.server.shutdown')

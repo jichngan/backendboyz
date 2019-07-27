@@ -1,9 +1,17 @@
+'''
+Code to scan for all devices connected to the network 
+User will have to change interface and IPs to suit their network but the one used here is the generic case
+This also saves the output into a Json file 
+There is also an API to check for manufacturer of product 
+'''
+
 import sys
 from scapy.all import *
 import requests
 import json
 
 def scan():
+  #**EDIT HERE** If your interface is NOT Wlan0 
   interface = "wlan0"
   ips = "192.168.0.0/24"
 
