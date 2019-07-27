@@ -1,9 +1,0 @@
-{% extends "layout.html" %}
-{% block content %}
-  <h1> IOT Devices Name  </h1>
-  <h2> Netdisco Names </h2>
-  {% for k,v in names.items() %}
-    <p> Details of Device {{ k }} is {{ names[k] }} </p>
-  {% endfor %}
-
-{% endblock content %}
