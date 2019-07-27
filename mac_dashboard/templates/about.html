@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1> Instructions </h1>
+<h2> Discover All </h2>
+<ul style="list-style-type: circle;">
+  <li> This function scans the home network to view all devices connected </li>
+  <li> Scan will take about 1 minute to perform depending on the number of devices connected </li> 
+</ul>
+
+<h2> Scan IOT Devices </h2>
+<ul style="list-style-type: circle;">
+  <li> This function scans the home network to view all Internet-of-Things (IOT) devices </li>
+  <li> Besides displaying the IP Address of the devices, some additional infomration will also be displayed </li> 
+  <li> If scan returns no results, please attempt to scan for the devices again. There are some instances where the scan will provide no results </li> 
+</ul>
+
+<h2> Scan Network Traffic </h2>
+<ul style="list-style-type: circle;">
+  <li> This is the main function of nosy, which is to view all the network traffic of the IOT devices connected to home network </li>
+  <li> A realtime graph of the bytes of network traffic against which website your IOT device is visiting will be displayed </li> 
+  <li> This feature will be run on the Command Line Interface, please proceed to <b>Scan Traffic </b> tab to view in-depth instructions </li> 
+  <li> In the current version the graph displayed is not dynamic. So if the traffic volume is too high, graph may be cluttered </li> 
+</ul> 
+
+<h2> Display Network Traffic </h2>
+<ul style="list-style-type: circle;">
+  <li> This displays the graph of a previously scanned network traffic </li>
+  <li> To upload the scanned graph onto "www.nosybackendboyz.com" proceed to static-Images folder located in the folder containing nosy </li>
+</ul>
+
+<h2> Ending a session </h2>
+<ul style="list-style-type: circle;">
+  <li> Proceed to <b> End Session </b> tab to end a session and close the website </li> 
+</ul>
+
+ 
+{% endblock content %}
+
+
+

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Start Scanning!</h1>
+  <h3> Scanning will take approximately 1 minute. There will be some scans which yield no results, simply scan again! </h3>
+  <a role = "button"  class="btn btn-primary" href="{{ url_for('start_discover') }}">Begin Scan</a>
+  <br> </br>
+
+  <h2> Names of previously scanned IOT Devices </h2>
+  {% for k,v in scan_data.items() %}
+      <div class = "article-metadata">
+        <p> Details of device {{ scan_data[k] }} </p>
+      </div>
+  {% endfor %}
+
+{% endblock content %}

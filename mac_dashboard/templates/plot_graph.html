@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h1> Graph of previously scanned network  </h1>
+  <br></br>
+  <h3> Please hold Ctrl-Shift-R to refresh </h3>
+  <h3> If you are on Safari Explorer, hold Shift and click on refresh icon </h3>
+  <br></br>
+  <h3> Head to Static-Images-new_plot.png to retrieve image to upload to www.nosybackendboyz.com </h3>
+  <img src = {{ url }} alt = "Chart" height = {{ width }} width = {{ height }}>
+
+{% endblock content %}
