@@ -15,4 +15,4 @@ def image_info():
     "Height": im.size[0],
     "Width": im.size[1]
   }
-return output
+  return output

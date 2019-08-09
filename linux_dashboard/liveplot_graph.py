@@ -13,7 +13,7 @@ def animate(i):
   y1 = data["Bytes"]
 
   plt.cla()
-  plt.bar(x,y1, color = "#444444", label = "Bytes Sent")
+  plt.bar(x,y1, color = "#FFA07A", label = "Bytes Sent")
   plt.xticks(rotation=60)
   plt.tight_layout()
 

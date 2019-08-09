@@ -1,11 +1,19 @@
 DNS Host,Bytes
 connectivitycheck.gstatic.com.,97
+www.google.com.,82
+www.google.com.,82
+clients3.google.com.,87
+api-partner.spotify.com.,91
 api.spotify.com.,83
 www.google-analytics.com.,92
-api-partner.spotify.com.,91
+apresolve.spotify.com.,89
+gae-dealer.spotify.com.,90
 gae-spclient.spotify.com.,92
-clients3.google.com.,87
-clients4.google.com.,87
 play.googleapis.com.,87
 play.googleapis.com.,87
+seektables.scdn.co.,86
 audio-ak-spotify-com.akamaized.net.,102
+time.google.com.,83
+time.google.com.,83
+www.google.com.,82
+www.google.com.,82
