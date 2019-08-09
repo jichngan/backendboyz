@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+{% for post in posts.items %}
+<article class="media content-section">
+	<img class="rounded-circle article-img border border-primary" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+	<div class="media-body">
+		<div class="article-metadata">
+			<a class="mr-2" style="color:#5bc0de" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
+			<small class="text-muted">{{ post.date_posted.strftime('%d-%m-%Y') }}</small>
+		</div>
+		<h2><a class="article-title" style="color:#DF691A" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+		{% if post.image_file != 'NULL' %}
+		<img src="{{ url_for('static', filename='uploads/' + post.image_file) }}">
+		{% endif %}
+		<p class="article-content">{{ post.content }}</p>
+	</div>
+</article>
+{% endfor %}
+<ul class="pagination">
+	{% if posts.page == 1 %}
+	<li class="page-item disabled">
+		<a class="page-link" href="{{ url_for('home', page=(posts.page-1) ) }}">&laquo;</a>
+	</li>
+	{% else %}
+	<li class="page-item">
+		<a class="page-link" href="{{ url_for('home', page=(posts.page-1) ) }}">&laquo;</a>
+	</li>
+	{% endif %}
+	{% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+	{% if page_num %}
+	{% if posts.page == page_num %}
+	<li class="page-item active">
+		<a class="page-link" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+	</li>
+	{% else %}
+	<li class="page-item">
+		<a class="page-link" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+	</li>
+	{% endif %}
+	{% else %}
+	...
+	{% endif %}
+	{% endfor %}
+	<li class="page-item">
+		<a class="page-link" href="{{ url_for('home', page=(posts.page+1) ) }}">&raquo;</a>
+	</li>
+</ul>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{url_for('demo')}}">Nosy Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url_for('discover_all')}}">Discover All</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url_for('scan_iot')}}">Scan IOT Devices</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url_for('display_traffic')}}">Display Network Traffic</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+ <img src="{{ url_for('static', filename='previous_plot.png') }}" width="100%" height="100%">
+
+  <p class="text-muted">Any data in the demo pages is simulated.</p>
+  {% endblock content %}

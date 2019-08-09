@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{url_for('demo')}}">Nosy Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url_for('discover_all')}}">Discover All</a>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('scan_iot')}}">Scan IOT Devices</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('display_traffic')}}">Display Network Traffic</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container bg-white" style="color:black">
+    <h1>Start Scanning!</h1>
+    <h3> Scanning will take approximately 1 minute. There will be some scans which yield no results, simply scan again! </h3>
+    <a role = "button"  class="btn btn-info" href="{{url_for('discovered_all')}}">Begin Scan</a>
+    <br> </br>
+    <h2> Names of previously scanned IOT Devices </h2>
+    <div class = "article-metadata">
+      <p> Scanned IP of device is 3.162.227.127 </p>
+      <p> Scanned MAC of device is 43:7b:4e:da:ab:57</p>
+      <p> Manufacturer of Device is Xiaomi</p>
+    </div>
+    <div class = "article-metadata">
+      <p> Scanned IP of device is 153.125.62.218 </p>
+      <p> Scanned MAC of device is DF-72-FA-64-C9-9F</p>
+      <p> Manufacturer of Device is Google</p>
+    </div>
+    <br>  
+  </div>
+  <p class="text-muted">Any data in the demo pages is simulated.</p>
+  {% endblock content %}

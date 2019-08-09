@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{url_for('demo')}}">Nosy Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url_for('discover_all')}}">Discover All</a>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('scan_iot')}}">Scan IOT Devices</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('display_traffic')}}">Display Network Traffic</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container bg-white" style="color:black">
+    <br>
+    <article class = "media content-section">
+      <div class = "media-body">
+        <div class="article-metadata">
+            <p>Details of device 1 is 109.195.69.252,92193219,c0s-2ee-1021soakqa-1922.local,05,123,125aaiq-1sd-www,Google Home Mini</p>
+        </div>
+      </div>
+    </article>
+    <article class = "media content-section">
+      <div class = "media-body">
+        <div class="article-metadata">
+          <p>Details of device 2 is 71.28.198.120, 29fj10s-xex-1wd1, c01jsj1292j-asnlwisjs.pub,04,1231,10oqjsqjss-134s,wls.w,Phillips Hue</p>
+        </div>
+      </div>
+    </article>
+    <article class = "media content-section">
+      <div class = "media-body">
+        <div class="article-metadata">
+          <p>Details of device 3 is 133.9.31.61, 1jsnwnwdoq-d-wix3n q19em1.sk1j1, 0s1ncn,wjvefnqf3.local,02,11124,0sjksjdsiq-1n213.dj1fjf1,qf1. Smart Switch</p>
+        </div>
+      </div>
+    </article>
+    <br>
+  </div>
+  <p class="text-muted">Any data in the demo pages is simulated.</p>
+  {% endblock content %}

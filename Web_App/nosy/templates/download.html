@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>Download Page</h1>
+<p class="text-muted">Get Nosy here!</p>
+<p>Choose the distribution you are using and the download will begin.</p>
+<p>After downloading, go to your terminal and navigate to the download folder.</p>
+<p>Then type "./run_servers" into your command line to run the web app.</p>
+<p>Visit <a href="https://macpaw.com/how-to/use-terminal-on-mac"> guide </a>on how to use terminal on mac, if you're using linux an explanation should be rendundant.</p>
+<a href=downloads/mac_dashboard.zip>
+  <img src="{{ url_for('static', filename='apple-logo.png') }}" style="float: left; width: 25%; margin-right: 5%; margin-bottom: 0.5em;">
+</a>
+
+<a href=downloads/linux_dashboard.zip>
+  <img src="{{ url_for('static', filename='linux-logo.png') }}" style="float: center; width: 25%; margin-left: 5%;margin-bottom: 0.5em;">
+</a>
+<img src="{{ url_for('static', filename='run_server.gif')}}" style="float: right; width: 30%;margin-right: 1%; margin-bottom: 0.5em;">
+<br />
+<br />
+<br />
+
+{% if current_user.is_authenticated %}
+<p class="text-muted">Login required for downloads</p>
+{% else %}
+<p class="text-muted"><a href="{{ url_for('login') }}">Login </a>required for downloads</p>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{url_for('demo')}}">Nosy Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url_for('discover_all')}}">Discover All</a>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('scan_iot')}}">Scan IOT Devices</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('display_traffic')}}">Display Network Traffic</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container bg-white" style="color:black">
+    <div class = "article-metadata">
+      <h3> Device Number 1</h3>
+      <p> Scanned IP of device is 192.156.0.2 </p>
+      <p> Scanned MAC of device is C8-C4-E4-DF-B9-8D</p>
+      <p> Manufacturer of Device is D-Link International</p>
+    </div>
+    <div class = "article-metadata">
+      <h3> Device Number 2</h3>
+      <p> Scanned IP of device is 114.66.232.7</p>
+      <p> Scanned MAC of device is CA-1E-12-9F-A8-C5 </p>
+      <p> Manufacturer of Device is Samsung</p>
+    </div>
+    <div class = "article-metadata">
+      <h3> Device Number 3</h3>
+      <p> Scanned IP of device is 138.39.15.59 </p>
+      <p> Scanned MAC of device is 52-A2-58-65-8F-F5 </p>
+      <p> Manufacturer of Device is Apple</p>  </div>
+    </div>
+    <p class="text-muted">Any data in the demo pages is simulated.</p>
+    {% endblock content %}

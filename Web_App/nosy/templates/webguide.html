@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>NOSY Web App features</h1>
+<p>The motivation behind a public facing web app is mainly to host instructional videos and the downloads for our private IoT scanner app.<br>We however 
+decided to add a post functionality for people to share their findings and ask questions about the app so that there can be help from the community if a user faces a problem.<br><br>If you have any suggestions or find any bugs, leave a post to let us know about it!</p>
+<header>Home/Forum Page:</header>
+<ul>
+	<li>This page will show the posts of the users, which includes the date it was posted, the author and a picture if the user uploads one.</li>
+	<li>The user has to be logged in to post. If the user is the owner of the post, clicking the post title would allow them to edit/delete the post.</li>
+</ul>
+<header>Downloads Page:</header>
+<ul>
+	<li>User can download the private facing app here for either linux or mac OS by clicking on the respective logos.</li>
+	<li>We do require users to be logged in to download the app.</li>
+	<li>Downloads are hosted on our own server so that we can easily update the files.</li>
+</ul>
+<header>Login/Register Page:</header>
+<ul>
+	<li>We host our account related forms here.</li>
+	<li>User data is kept in an SQLite database and passwords are all encrypted using pythons Bcrypt library so they wont be stored as plain text.</li>
+	<li>If the user forgot or lost their password, they can click on the 'forgot password' link to receive an email with instructions on how to reset their password.</li>
+</ul>
+<header>Account Page:</header>
+<ul>
+	<li>Once logged in, the login tag changes to an account tag.</li>
+	<li>Here, users can update their personal info like their username or email address and even upload profile pictures.</li>
+</ul>
+<header>Demo Page:</header>
+<ul>
+	<li>Here, users can test an online version of our actual private facing web app. All data here is hardcoded so it wont change but will give users what the app actually looks like.</li>
+	<li>Colour scheme is slightly different from the actual private web app.</li>
+</ul>	
+<header>Video Page:</header>
+<ul>
+	<li>Instructional videos and demos will be uploaded here for users to learn how to navigate and use our private facing web app.</li>
+	<li>This is important as some commands need to be sent through the command line when using our app.</li>
+	<li>Users can click on the 'BackEndBoyz' tab on the right side of the navigation bar to go to our youtube page which has even more videos for further clarification.</li>
+</ul>	
+{% endblock content %} 

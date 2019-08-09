@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{url_for('demo')}}">Nosy Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url_for('discover_all')}}">Discover All</a>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('scan_iot')}}">Scan IOT Devices</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('display_traffic')}}">Display Network Traffic</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container bg-white" style="color:black">
+    <h1>Start Scanning!</h1>
+    <h3> Scanning will take approximately 1 minute. Please brew some tea in the process </h3>
+    <a role = "button"  class="btn btn-info" href="{{url_for('scanned_iot')}}">Begin Scan</a>
+    <br> </br>
+    <h2> Previously Scanned Devices </h2>
+    <div class="article-metadata">
+      <p> Details of device is 69.199.251.220,9f-92-ed-a8-5a-18,asisdj1,12201312049-21-91-21-c-c-w--11ss, Google/Home,19sk1.slwow,local,1,1,2,2,Spotify</p>
+    </div>
+    <div class="article-metadata">
+      <p> Details of device is 236.49.185.227,bd-a7-2b-fb-a7-1e,sodfnviawf-21-e-w2-e-31-1, /setupicon/home/tab,1,1,12.ss.aqo2w</p>
+    </div>
+    <div class="article-metadata">
+      <p> Details of device is 148.255.27.98, ca-7e-79-08-7b-47,iasdn1k1-s9fif1-1if1l1jf,1,,e,1,214,/Hue,1</p>
+    </div>
+    <br>
+  </div>
+  <p class="text-muted">Any data in the demo pages is simulated.</p>
+  {% endblock content %}

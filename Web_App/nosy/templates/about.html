@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<blockquote class="blockquote">
+  <h1 class="display-3">Sometimes it's better to be in the know.</h1>
+  <footer class="blockquote-footer">Nosy</footer>
+</blockquote> 
+<!--<img src="{{ url_for('static', filename='welcome_gif.gif') }}" style="float: left; width: 100%; margin-right: 5%; margin-bottom: 0.5em;">-->
+<div><p>Our private facing web app <small class="text-muted"> (found in the download tab) </small> contains the following features:</p></div>
+<ul>
+	<li>Running a scan on the home network revealing any devices are connected</li>
+	<li>The Dashboard uses the Mac Address of the devices and various scripts to recognise the IOT device</li>
+	<li>User can select to monitor their IOT devices</li>
+	<li>Traffic of the monitored IOT devices will be displayed in the graphs tab</li>
+	<li>Graphs can be exported to be uploaded to the forum on the public facing web app for users to share their findings or questions.</li>
+</ul>
+<br><br>
+<p>Test account : test@test.com</p>
+<p>Password : test</p>
+{% endblock content %}
