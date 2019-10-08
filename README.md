@@ -3,7 +3,7 @@
 
 ## What is Nosy?
 
-Nosy is a Home Network monitoring suite that can scan for all IOT devices connected to the network. Thereafter, users can choose to monitor for the network traffic of a specific IOT device.After monitoring, users can upload a graph of their scan to [Nosy's website] (http://www.nosybackendboyz.com). Currently, Nosy will run on Mac and Linux Operating System.  
+Nosy is a Home Network monitoring suite that can scan for all IOT devices connected to the network. Thereafter, users can choose to monitor for the network traffic of a specific IOT device.After monitoring, users can upload a graph of their scan to [Nosy's website] (http://www.nosybackendboyz.com). Currently, Nosy will run on Mac and Linux Operating System. As of August 2019, Nosy's website has been taken down from our servers. However, users can still check out a demo of the Website and system by watching the demo video
 
 ## Main Website 
 
